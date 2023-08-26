@@ -26,6 +26,19 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
+/**
+ * struct bus_s - variables -args, file, line content
+ *
+ * @arg: value
+ *
+ * @file: pointer to monty file
+ *
+ * @content: line content
+ *
+ * @lifi: flag change
+ *
+ * Description: carries values in the program.
+ */
 typedef struct bus_s
 {
 	char *arg;
@@ -35,15 +48,15 @@ typedef struct bus_s
 }  bus_t;
 extern bus_t bus;
 /**
- * struct instruction_s - opcode and function.
+ * struct instruction_s - opcode and its function
  *
- * @opcode: this is the opcode.
+ * @opcode: the opcode
  *
- * @f: function
+ * @f: function to handle the opcode
  *
- * Description: opcode.
+ * Description: opcode and its function
  *
- * for stack, queues, LIFO, FIFO
+ * for stack, queues, LIFO, FIFO.
  */
 typedef struct instruction_s
 {
@@ -62,4 +75,16 @@ void f_pop(stack_t **head, unsigned int counter);
 void f_swap(stack_t **head, unsigned int counter);
 void f_add(stack_t **head, unsigned int counter);
 void f_nop(stack_t **head, unsigned int counter);
+void f_sub(stack_t **head, unsigned int counter);
+void f_div(stack_t **head, unsigned int counter);
+void f_mul(stack_t **head, unsigned int counter);
+void f_mod(stack_t **head, unsigned int counter);
+void f_pchar(stack_t **head, unsigned int counter);
+void f_pstr(stack_t **head, unsigned int counter);
+void f_rotl(stack_t **head, unsigned int counter);
+void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
+void addnode(stack_t **head, int n);
+void addqueue(stack_t **head, int n);
+void f_queue(stack_t **head, unsigned int counter);
+void f_stack(stack_t **head, unsigned int counter);
 #endif
